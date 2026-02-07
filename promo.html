@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3D Control - Teste Grátis por 14 Dias</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="Experimente o 3D Control grátis por 14 dias. Sistema completo de gestão para impressão 3D. Controle custos, calcule preços e aumente seus lucros."
+        />
+        <meta
+            name="keywords"
+            content="impressão 3D, gestão impressão 3D, controle de custos 3D, teste grátis, software impressão 3D"
+        />
+        <meta name="author" content="3D Control" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="3D Control - Teste Grátis por 14 Dias" />
+        <meta
+            property="og:description"
+            content="Experimente o 3D Control grátis por 14 dias. Sistema completo de gestão para impressão 3D."
+        />
+        <meta property="og:locale" content="pt_BR" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <style>
+            :root {
+                --primary: #ff6b35;
+                --primary-hover: #e55a2b;
+                --primary-light: rgba(255, 107, 53, 0.1);
+                --secondary: #1e293b;
+                --accent: #10b981;
+                --gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+                --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f97316 100%);
+            }
+
+            [data-theme="light"] {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f8fafc;
+                --bg-tertiary: #f1f5f9;
+                --bg-card: #ffffff;
+                --text-main: #1e293b;
+                --text-secondary: #475569;
+                --text-muted: #64748b;
+                --border-color: #e2e8f0;
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+                --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+                --header-bg: rgba(255, 255, 255, 0.9);
+            }
+
+            [data-theme="dark"] {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-tertiary: #334155;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+                --border-color: rgba(255, 255, 255, 0.1);
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+                --header-bg: rgba(15, 23, 42, 0.9);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Inter", sans-serif;
+            }
+
+            body {
+                background-color: var(--bg-primary);
+                color: var(--text-main);
+                line-height: 1.6;
+                overflow-x: hidden;
+                transition:
+                    background-color 0.3s ease,
+                    color 0.3s ease;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+
+            /* Header */
+            header {
+                padding: 16px 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                background: var(--header-bg);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-main);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                background: var(--gradient);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo-icon i {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-secondary);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                color: var(--text-muted);
+                font-size: 1.1rem;
+            }
+
+            .theme-toggle:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+            }
+
+            [data-theme="light"] .theme-toggle .fa-sun {
+                display: none;
+            }
+            [data-theme="dark"] .theme-toggle .fa-moon {
+                display: none;
+            }
+
+            /* Hero Section */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 120px 0 80px;
+                position: relative;
+                overflow: hidden;
+                background: var(--bg-secondary);
+            }
+
+            .hero-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background:
+                    radial-gradient(
+                        ellipse at 30% 20%,
+                        rgba(255, 107, 53, 0.08) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        ellipse at 70% 80%,
+                        rgba(255, 107, 53, 0.05) 0%,
+                        transparent 50%
+                    );
+                pointer-events: none;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3.2rem;
+                margin-bottom: 20px;
+                line-height: 1.15;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+
+            .hero-text h1 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                margin-bottom: 30px;
+            }
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: var(--primary-light);
+                border: 1px solid rgba(255, 107, 53, 0.2);
+                padding: 10px 22px;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                color: var(--primary);
+                margin-bottom: 25px;
+                font-weight: 600;
+            }
+
+            .benefits-list {
+                list-style: none;
+                margin-bottom: 30px;
+            }
+
+            .benefits-list li {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 10px 0;
+                color: var(--text-secondary);
+                font-size: 1.05rem;
+            }
+
+            .benefits-list li i {
+                color: var(--accent);
+                font-size: 1.1rem;
+            }
+
+            /* Form Card */
+            .form-card {
+                background: var(--bg-card);
+                padding: 45px;
+                border-radius: 24px;
+                border: 2px solid var(--primary);
+                box-shadow: var(--shadow-lg);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .form-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 5px;
+                background: var(--gradient);
+            }
+
+            .form-badge {
+                display: inline-block;
+                background: var(--gradient);
+                padding: 8px 20px;
+                border-radius: 50px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: white;
+            }
+
+            .form-card h2 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+                color: var(--text-main);
+            }
+
+            .form-card > p {
+                color: var(--text-muted);
+                margin-bottom: 30px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: var(--text-main);
+                font-size: 0.95rem;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 16px 20px;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-secondary);
+                color: var(--text-main);
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .form-group input:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            }
+
+            .form-group input::placeholder {
+                color: var(--text-muted);
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 16px 36px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: none;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            .btn-primary {
+                background: var(--gradient);
+                color: white;
+                box-shadow: 0 4px 20px rgba(255, 107, 53, 0.35);
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+            }
+
+            .btn-primary:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+                transform: none;
+            }
+
+            .form-footer {
+                text-align: center;
+                margin-top: 20px;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+            }
+
+            .form-footer i {
+                color: var(--accent);
+                margin-right: 5px;
+            }
+
+            /* Success Message */
+            .success-message {
+                display: none;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .success-message.show {
+                display: block;
+            }
+
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                background: var(--accent);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                font-size: 2.5rem;
+                color: white;
+            }
+
+            .success-message h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: var(--text-main);
+            }
+
+            .success-message p {
+                color: var(--text-muted);
+            }
+
+            /* Stats Section */
+            .stats {
+                padding: 80px 0;
+                background: var(--bg-primary);
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+
+            .stat-item {
+                text-align: center;
+                padding: 30px;
+                background: var(--bg-card);
+                border-radius: 16px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+                font-weight: 800;
+                color: var(--primary);
+                line-height: 1;
+                margin-bottom: 10px;
+            }
+
+            .stat-label {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+            }
+
+            /* Features Preview */
+            .features-preview {
+                padding: 100px 0;
+                background: var(--bg-secondary);
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+
+            .section-title h2 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .section-title p {
+                color: var(--text-muted);
+                max-width: 600px;
+                margin: 0 auto;
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            .feature-card {
+                background: var(--bg-card);
+                padding: 35px;
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                background: var(--gradient);
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                color: var(--text-main);
+            }
+
+            .feature-card p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+            }
+
+            /* Urgency Banner */
+            .urgency-banner {
+                background: var(--gradient);
+                padding: 20px;
+                text-align: center;
+            }
+
+            .urgency-banner p {
+                color: white;
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .urgency-banner span {
+                background: white;
+                color: var(--primary);
+                padding: 5px 15px;
+                border-radius: 20px;
+                margin-left: 10px;
+                font-weight: 700;
+            }
+
+            /* CTA Section */
+            .cta-section {
+                padding: 100px 0;
+                background: var(--bg-primary);
+            }
+
+            .cta-card {
+                background: var(--gradient);
+                padding: 70px 50px;
+                border-radius: 28px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cta-card::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -30%;
+                width: 80%;
+                height: 100%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+                pointer-events: none;
+            }
+
+            .cta-card h2 {
+                font-size: 2.4rem;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: white;
+            }
+
+            .cta-card p {
+                font-size: 1.15rem;
+                max-width: 580px;
+                margin: 0 auto 35px;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .cta-card .btn {
+                background: white;
+                color: var(--primary);
+                width: auto;
+                padding: 16px 50px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .cta-card .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 0;
+                border-top: 1px solid var(--border-color);
+                background: var(--bg-secondary);
+                text-align: center;
+            }
+
+            footer p {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+            }
+
+            /* Animations */
+            .fade-in {
+                opacity: 0;
+                transform: translateY(25px);
+                transition:
+                    opacity 0.7s ease-out,
+                    transform 0.7s ease-out;
+            }
+
+            .visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Responsive */
+            @media (max-width: 992px) {
+                .hero-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+
+                .hero-text h1 {
+                    font-size: 2.5rem;
+                }
+
+                .benefits-list {
+                    display: inline-block;
+                    text-align: left;
+                }
+
+                .form-card {
+                    max-width: 500px;
+                    margin: 0 auto;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .features-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .hero-text h1 {
+                    font-size: 2rem;
+                }
+
+                .form-card {
+                    padding: 30px 20px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .stat-number {
+                    font-size: 2rem;
+                }
+
+                .section-title h2 {
+                    font-size: 1.8rem;
+                }
+
+                .cta-card {
+                    padding: 50px 25px;
+                }
+
+                .cta-card h2 {
+                    font-size: 1.6rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        3D Control
+                    </a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text fade-in">
+                        <div class="hero-badge">
+                            <i class="fas fa-gift"></i>
+                            Oferta Especial - Teste Grátis
+                        </div>
+                        <h1>Pare de <span>perder dinheiro</span> na sua impressão 3D</h1>
+                        <p>
+                            Descubra quanto você realmente lucra em cada peça. Tenha controle total
+                            do seu negócio com o sistema mais completo do mercado.
+                        </p>
+                        <ul class="benefits-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Calcule custos reais de cada impressão
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Gerencie pedidos e clientes em um só lugar
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Controle estoque de filamentos automaticamente
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Relatórios financeiros profissionais
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Sem cartão de crédito para testar
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-card fade-in" id="formCard">
+                        <div class="form-badge">14 Dias Grátis</div>
+                        <h2>Comece seu teste gratuito</h2>
+                        <p>Acesso completo a todas as funcionalidades por 2 semanas.</p>
+
+                        <form id="trialForm">
+                            <div class="form-group">
+                                <label for="email">Seu melhor e-mail</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="seuemail@exemplo.com"
+                                    required
+                                />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <i class="fas fa-rocket"></i>
+                                Quero Testar Grátis
+                            </button>
+                        </form>
+
+                        <div class="form-footer">
+                            <i class="fas fa-lock"></i>
+                            Seus dados estão seguros. Não enviamos spam.
+                        </div>
+
+                        <div class="success-message" id="successMessage">
+                            <div class="success-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3>Acesso liberado!</h3>
+                            <p>
+                                Enviamos um e-mail para você ativar sua conta. Você também pode
+                                acessar
+                                <a
+                                    href="https://app.3dcontrol.com.br"
+                                    target="_blank"
+                                    style="color: var(--primary); font-weight: 600"
+                                    >app.3dcontrol.com.br</a
+                                >
+                                e clicar em "Primeiro Acesso".
+                            </p>
+                            <a
+                                href="https://app.3dcontrol.com.br"
+                                class="btn btn-primary"
+                                style="margin-top: 20px; width: auto; display: inline-flex"
+                            >
+                                <i class="fas fa-external-link-alt"></i>
+                                Ir para a Plataforma
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">+300%</div>
+                        <div class="stat-label">Aumento médio no lucro</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">2h</div>
+                        <div class="stat-label">Economia por semana</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Makers usando</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">5.0</div>
+                        <div class="stat-label">Avaliação média</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>O que você vai <span>desbloquear</span></h2>
+                    <p>Tudo que você precisa para profissionalizar seu negócio de impressão 3D</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Calculadora de Custos</h3>
+                        <p>
+                            Saiba exatamente quanto custa cada peça: filamento, energia, desgaste e
+                            tempo de máquina.
+                        </p>
+                    </div>
+
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Dashboard Financeiro</h3>
+                        <p>
+                            Visualize receitas, despesas e lucro em tempo real com gráficos
+                            intuitivos.
+                        </p>
+                    </div>
+
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>Controle de Estoque</h3>
+                        <p>
+                            Gerencie filamentos, resinas e materiais. Alertas automáticos de
+                            reposição.
+                        </p>
+                    </div>
+
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>Gestão de Pedidos</h3>
+                        <p>
+                            Acompanhe cada pedido do orçamento à entrega. Nunca mais perca prazos.
+                        </p>
+                    </div>
+
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>CRM de Clientes</h3>
+                        <p>
+                            Histórico completo de cada cliente, pedidos anteriores e preferências.
+                        </p>
+                    </div>
+
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3>Relatórios Profissionais</h3>
+                        <p>Exporte relatórios detalhados para tomar decisões baseadas em dados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card fade-in">
+                    <h2>Pronto para transformar seu negócio?</h2>
+                    <p>
+                        Junte-se a centenas de makers que já estão lucrando mais com o 3D Control.
+                        Teste grátis por 14 dias, sem compromisso.
+                    </p>
+                    <a href="#formCard" class="btn">
+                        <i class="fas fa-arrow-up"></i>
+                        Começar Teste Grátis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 3D Control. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Theme Toggle
+            const themeToggle = document.getElementById("themeToggle");
+            const html = document.documentElement;
+
+            const savedTheme = localStorage.getItem("theme") || "light";
+            html.setAttribute("data-theme", savedTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const currentTheme = html.getAttribute("data-theme");
+                const newTheme = currentTheme === "light" ? "dark" : "light";
+                html.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+            });
+
+            // Form submission
+            const form = document.getElementById("trialForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const successMessage = document.getElementById("successMessage");
+
+            const API_URL = "https://api.3dcontrol.com.br";
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value;
+
+                // Disable button and show loading
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
+
+                try {
+                    const response = await fetch(`${API_URL}/preview-access`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email }),
+                    });
+
+                    if (response.ok) {
+                        // Success - show success message
+                        form.style.display = "none";
+                        document.querySelector(".form-badge").style.display = "none";
+                        document.querySelector(".form-card h2").style.display = "none";
+                        document.querySelector(".form-card > p").style.display = "none";
+                        document.querySelector(".form-footer").style.display = "none";
+                        successMessage.classList.add("show");
+                    } else if (response.status === 409) {
+                        // User already has subscription/trial - redirect silently
+                        window.location.href = "https://app.3dcontrol.com.br";
+                    } else {
+                        throw new Error("Erro ao processar");
+                    }
+                } catch (error) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-rocket"></i> Quero Testar Grátis';
+                    alert("Ocorreu um erro. Por favor, tente novamente.");
+                }
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
