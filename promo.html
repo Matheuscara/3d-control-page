@@ -962,7 +962,7 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
 
                 try {
-                    const response = await fetch(`${API_URL}/preview-access`, {
+                    const response = await fetch(`${API_URL}/preview-access?v=1`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ email }),
