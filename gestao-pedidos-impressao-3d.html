@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-site-verification" content="S3fjV3ZNcfsUWSfkCYRItH95sEz8vCgYw6oR8Ux4Yig" />
+        <title>Gestão de Pedidos para Impressão 3D | 3DControl</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Gerencie pedidos de impressão 3D do orçamento à entrega. Acompanhe status, prazos, clientes e pagamentos em um só lugar. Ideal para hubs e fazendas 3D." />
+        <meta name="keywords" content="gestão pedidos impressão 3D, controle pedidos 3D, sistema hub impressão 3D, fazenda impressão 3D, organizar pedidos maker" />
+        <meta name="author" content="3DControl" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://3dcontrol.com.br/gestao-pedidos-impressao-3d" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://3dcontrol.com.br/gestao-pedidos-impressao-3d" />
+        <meta property="og:title" content="Gestão de Pedidos para Impressão 3D | 3DControl" />
+        <meta property="og:description" content="Gerencie pedidos de impressão 3D do orçamento à entrega. Acompanhe status, prazos e pagamentos." />
+        <meta property="og:image" content="https://3dcontrol.com.br/og-image.jpg" />
+        <meta property="og:locale" content="pt_BR" />
+
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "3DControl - Gestão de Pedidos",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "description": "Sistema de gestão de pedidos para hubs e fazendas de impressão 3D. Controle do orçamento à entrega.",
+                "url": "https://3dcontrol.com.br/gestao-pedidos-impressao-3d",
+                "featureList": [
+                    "Pipeline de pedidos visual",
+                    "Controle de prazos e entregas",
+                    "Gestão de pagamentos",
+                    "Histórico completo do cliente",
+                    "Notificações automáticas"
+                ]
+            }
+        </script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <style>
+            :root {
+                --primary: #ff6b35;
+                --primary-hover: #e55a2b;
+                --primary-light: rgba(255, 107, 53, 0.1);
+                --secondary: #1e293b;
+                --accent: #10b981;
+                --gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            }
+
+            [data-theme="light"] {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f8fafc;
+                --bg-card: #ffffff;
+                --text-main: #1e293b;
+                --text-secondary: #475569;
+                --text-muted: #64748b;
+                --border-color: #e2e8f0;
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+                --header-bg: rgba(255, 255, 255, 0.9);
+            }
+
+            [data-theme="dark"] {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+                --border-color: rgba(255, 255, 255, 0.1);
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+                --header-bg: rgba(15, 23, 42, 0.9);
+            }
+
+            * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Inter", sans-serif; }
+            body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+            .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+            header {
+                padding: 16px 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                background: var(--header-bg);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            nav { display: flex; justify-content: space-between; align-items: center; }
+
+            .logo {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-main);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                background: var(--gradient);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo-icon i { color: white; font-size: 1.2rem; }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 36px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: none;
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                background: var(--gradient);
+                color: white;
+                box-shadow: 0 4px 20px rgba(255, 107, 53, 0.35);
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+                background: var(--bg-secondary);
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+
+            .hero h1 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                max-width: 700px;
+                margin-bottom: 30px;
+            }
+
+            .content { padding: 80px 0; }
+
+            .content h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: var(--text-main);
+            }
+
+            .content h2 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .content p, .content li {
+                font-size: 1.1rem;
+                color: var(--text-secondary);
+                margin-bottom: 15px;
+                line-height: 1.8;
+            }
+
+            .content ul {
+                list-style: none;
+                margin: 30px 0;
+            }
+
+            .content ul li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .content ul li i {
+                color: var(--accent);
+                margin-top: 5px;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                margin: 50px 0;
+            }
+
+            .feature-card {
+                background: var(--bg-card);
+                padding: 35px;
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                color: var(--text-main);
+            }
+
+            .feature-card p {
+                color: var(--text-muted);
+                font-size: 1rem;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                background: var(--gradient);
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .cta-section {
+                padding: 80px 0;
+                background: var(--bg-secondary);
+                text-align: center;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+                color: var(--text-main);
+            }
+
+            .cta-section p {
+                color: var(--text-muted);
+                max-width: 600px;
+                margin: 0 auto 30px;
+                font-size: 1.1rem;
+            }
+
+            .pipeline {
+                display: flex;
+                gap: 20px;
+                margin: 40px 0;
+                overflow-x: auto;
+                padding: 20px 0;
+            }
+
+            .pipeline-stage {
+                min-width: 180px;
+                background: var(--bg-card);
+                padding: 20px;
+                border-radius: 16px;
+                border: 1px solid var(--border-color);
+                text-align: center;
+            }
+
+            .pipeline-stage h4 {
+                font-size: 1rem;
+                color: var(--text-main);
+                margin-bottom: 5px;
+            }
+
+            .pipeline-stage p {
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                margin: 0;
+            }
+
+            .pipeline-arrow {
+                display: flex;
+                align-items: center;
+                color: var(--primary);
+                font-size: 1.5rem;
+            }
+
+            footer {
+                padding: 40px 0;
+                border-top: 1px solid var(--border-color);
+                background: var(--bg-primary);
+                text-align: center;
+            }
+
+            footer p { color: var(--text-muted); font-size: 0.9rem; }
+
+            @media (max-width: 768px) {
+                .hero h1 { font-size: 2rem; }
+                .content h2 { font-size: 1.5rem; }
+                .pipeline { flex-direction: column; }
+                .pipeline-arrow { transform: rotate(90deg); justify-content: center; }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="/" class="logo">
+                        <div class="logo-icon"><i class="fas fa-cube"></i></div>
+                        3DControl
+                    </a>
+                    <a href="/promo" class="btn btn-primary" style="padding: 10px 24px">
+                        Testar Grátis
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <h1>Gestão de <span>Pedidos de Impressão 3D</span></h1>
+                <p>
+                    Do orçamento à entrega, acompanhe cada pedido em tempo real. Nunca mais perca prazos
+                    ou esqueça de cobrar um cliente. Tudo organizado em um só lugar.
+                </p>
+                <a href="/promo" class="btn btn-primary">
+                    <i class="fas fa-clipboard-list"></i>
+                    Organizar Pedidos
+                </a>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <h2>O fluxo do <span>pedido perfeito</span></h2>
+                <p>
+                    Com o 3DControl, cada pedido passa por um pipeline visual que você acompanha em tempo real.
+                    Saiba exatamente em qual etapa está cada trabalho.
+                </p>
+
+                <div class="pipeline">
+                    <div class="pipeline-stage">
+                        <h4>Orçamento</h4>
+                        <p>Cliente solicitou</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-stage">
+                        <h4>Aprovado</h4>
+                        <p>Cliente aceitou</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-stage">
+                        <h4>Imprimindo</h4>
+                        <p>Na máquina</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-stage">
+                        <h4>Finalização</h4>
+                        <p>Pós-processamento</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-stage">
+                        <h4>Entregue</h4>
+                        <p>Concluído</p>
+                    </div>
+                </div>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Pipeline visual:</strong> Arraste pedidos entre as etapas como um Kanban</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Controle de prazos:</strong> Defina data de entrega e receba alertas de atraso</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Gestão de pagamentos:</strong> Saiba quais pedidos foram pagos e quais estão pendentes</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Histórico do cliente:</strong> Veja todos os pedidos anteriores de cada cliente</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Anexos e arquivos:</strong> Guarde os arquivos STL e referências de cada pedido</span>
+                    </li>
+                </ul>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Controle de Prazos</h3>
+                        <p>Nunca mais atrase uma entrega. Veja quais pedidos precisam de atenção imediata.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Gestão Financeira</h3>
+                        <p>Controle pagamentos, parcelas e saiba quanto tem a receber de cada cliente.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <h3>CRM Integrado</h3>
+                        <p>Mantenha o histórico completo de cada cliente e suas preferências.</p>
+                    </div>
+                </div>
+
+                <h2>Para quem é o <span>3DControl</span>?</h2>
+                <p>
+                    Se você recebe mais de 5 pedidos por semana, precisa de um sistema para não se perder.
+                    O 3DControl foi feito para makers que querem profissionalizar.
+                </p>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Makers individuais:</strong> Que vendem pelo Instagram, Mercado Livre ou indicação</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Hubs de impressão:</strong> Com múltiplas impressoras atendendo vários clientes</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Fazendas 3D:</strong> Operações maiores com dezenas de máquinas rodando</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Organize seus pedidos de impressão 3D</h2>
+                <p>
+                    Teste o 3DControl gratuitamente por 14 dias. Importe seus pedidos e tenha controle total.
+                </p>
+                <a href="/promo" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Testar Grátis por 14 Dias
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 3DControl. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </body>
+</html>

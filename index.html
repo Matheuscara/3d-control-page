@@ -58,20 +58,27 @@
             {
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
-                "name": "3D Control",
+                "name": "3DControl",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web",
-                "description": "Sistema completo de gestão para negócios de impressão 3D. Controle custos, calcule preços, gerencie pedidos e aumente seus lucros.",
+                "description": "Sistema de gestão para hubs e fazendas de impressão 3D. Controle custos, calcule preços, gerencie pedidos e aumente seus lucros.",
+                "url": "https://3dcontrol.com.br",
+                "screenshot": "https://3dcontrol.com.br/og-image.jpg",
                 "offers": {
                     "@type": "Offer",
                     "price": "39.99",
                     "priceCurrency": "BRL",
+                    "priceValidUntil": "2026-12-31",
                     "availability": "https://schema.org/InStock"
                 },
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "5",
                     "ratingCount": "150"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "3DControl"
                 }
             }
         </script>
@@ -989,15 +996,22 @@
                         3D Control
                     </a>
                     <div class="nav-links">
-                        <a href="#problemas">Problemas</a>
-                        <a href="#features">Funcionalidades</a>
-                        <a href="#beneficios">Benefícios</a>
-                        <a href="#depoimentos">Depoimentos</a>
+                        <a href="/calculadora-custo-impressao-3d">Calculadora</a>
+                        <a href="/gestao-de-filamentos">Filamentos</a>
+                        <a href="/gestao-pedidos-impressao-3d">Pedidos</a>
+                        <a href="#pricing">Preços</a>
                         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
                             <i class="fas fa-moon"></i>
                             <i class="fas fa-sun"></i>
                         </button>
-                        <a href="#contact" class="btn btn-primary" style="padding: 10px 24px"
+                        <a
+                            href="https://app.3dcontrol.com.br"
+                            target="_blank"
+                            class="btn btn-outline"
+                            style="padding: 10px 24px"
+                            ><i class="fas fa-sign-in-alt"></i> Entrar</a
+                        >
+                        <a href="/promo" class="btn btn-primary" style="padding: 10px 24px"
                             >Começar Agora</a
                         >
                     </div>
@@ -1139,6 +1153,21 @@
                             </li>
                             <li><i class="fas fa-check"></i> Receita por plataforma de venda</li>
                         </ul>
+                        <a
+                            href="/calculadora-custo-impressao-3d"
+                            style="
+                                color: var(--primary);
+                                font-weight: 600;
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 5px;
+                                margin-top: 10px;
+                            "
+                        >
+                            Calculadora de Custos
+                            <i class="fas fa-arrow-right" style="font-size: 0.8rem"></i>
+                        </a>
                     </div>
 
                     <div class="card fade-in">
@@ -1156,6 +1185,20 @@
                             </li>
                             <li><i class="fas fa-check"></i> Histórico completo de produção</li>
                         </ul>
+                        <a
+                            href="/gestao-pedidos-impressao-3d"
+                            style="
+                                color: var(--primary);
+                                font-weight: 600;
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 5px;
+                                margin-top: 10px;
+                            "
+                        >
+                            Saiba mais <i class="fas fa-arrow-right" style="font-size: 0.8rem"></i>
+                        </a>
                     </div>
 
                     <div class="card fade-in">
@@ -1173,6 +1216,20 @@
                             <li><i class="fas fa-check"></i> Rastreamento de uso por pedido</li>
                             <li><i class="fas fa-check"></i> Valor total do inventário</li>
                         </ul>
+                        <a
+                            href="/gestao-de-filamentos"
+                            style="
+                                color: var(--primary);
+                                font-weight: 600;
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 5px;
+                                margin-top: 10px;
+                            "
+                        >
+                            Saiba mais <i class="fas fa-arrow-right" style="font-size: 0.8rem"></i>
+                        </a>
                     </div>
 
                     <div class="card fade-in">

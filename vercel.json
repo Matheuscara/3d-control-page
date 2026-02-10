@@ -1,6 +1,17 @@
 {
     "version": 2,
-    "rewrites": [{ "source": "/promo", "destination": "/promo.html" }],
+    "rewrites": [
+        { "source": "/promo", "destination": "/promo.html" },
+        {
+            "source": "/calculadora-custo-impressao-3d",
+            "destination": "/calculadora-custo-impressao-3d.html"
+        },
+        { "source": "/gestao-de-filamentos", "destination": "/gestao-de-filamentos.html" },
+        {
+            "source": "/gestao-pedidos-impressao-3d",
+            "destination": "/gestao-pedidos-impressao-3d.html"
+        }
+    ],
     "headers": [
         {
             "source": "/(.*)",

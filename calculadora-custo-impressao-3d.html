@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-site-verification" content="S3fjV3ZNcfsUWSfkCYRItH95sEz8vCgYw6oR8Ux4Yig" />
+        <title>Calculadora de Custo de Impressão 3D | 3DControl</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina e tempo. Funciona com Bambu Lab, Creality, Ender e outras." />
+        <meta name="keywords" content="calculadora impressão 3D, custo impressão 3D, preço peça 3D, calcular filamento, custo Bambu Lab, custo Ender 3, precificação impressão 3D" />
+        <meta name="author" content="3DControl" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://3dcontrol.com.br/calculadora-custo-impressao-3d" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://3dcontrol.com.br/calculadora-custo-impressao-3d" />
+        <meta property="og:title" content="Calculadora de Custo de Impressão 3D | 3DControl" />
+        <meta property="og:description" content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina e tempo." />
+        <meta property="og:image" content="https://3dcontrol.com.br/og-image.jpg" />
+        <meta property="og:locale" content="pt_BR" />
+
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "3DControl - Calculadora de Custos",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "description": "Calculadora profissional de custos para impressão 3D. Calcule filamento, energia, desgaste e tempo de máquina.",
+                "url": "https://3dcontrol.com.br/calculadora-custo-impressao-3d",
+                "featureList": [
+                    "Cálculo de custo de filamento por grama",
+                    "Cálculo de consumo de energia",
+                    "Desgaste de peças e manutenção",
+                    "Tempo de máquina e operador",
+                    "Suporte a múltiplas impressoras"
+                ]
+            }
+        </script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <style>
+            :root {
+                --primary: #ff6b35;
+                --primary-hover: #e55a2b;
+                --primary-light: rgba(255, 107, 53, 0.1);
+                --secondary: #1e293b;
+                --accent: #10b981;
+                --gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            }
+
+            [data-theme="light"] {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f8fafc;
+                --bg-card: #ffffff;
+                --text-main: #1e293b;
+                --text-secondary: #475569;
+                --text-muted: #64748b;
+                --border-color: #e2e8f0;
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+                --header-bg: rgba(255, 255, 255, 0.9);
+            }
+
+            [data-theme="dark"] {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+                --border-color: rgba(255, 255, 255, 0.1);
+                --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+                --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+                --header-bg: rgba(15, 23, 42, 0.9);
+            }
+
+            * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Inter", sans-serif; }
+            body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+            .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+            header {
+                padding: 16px 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                background: var(--header-bg);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            nav { display: flex; justify-content: space-between; align-items: center; }
+
+            .logo {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-main);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                background: var(--gradient);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo-icon i { color: white; font-size: 1.2rem; }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 36px;
+                border-radius: 12px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: none;
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                background: var(--gradient);
+                color: white;
+                box-shadow: 0 4px 20px rgba(255, 107, 53, 0.35);
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+                background: var(--bg-secondary);
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+
+            .hero h1 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                max-width: 700px;
+                margin-bottom: 30px;
+            }
+
+            .content { padding: 80px 0; }
+
+            .content h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: var(--text-main);
+            }
+
+            .content h2 span {
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .content p, .content li {
+                font-size: 1.1rem;
+                color: var(--text-secondary);
+                margin-bottom: 15px;
+                line-height: 1.8;
+            }
+
+            .content ul {
+                list-style: none;
+                margin: 30px 0;
+            }
+
+            .content ul li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .content ul li i {
+                color: var(--accent);
+                margin-top: 5px;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                margin: 50px 0;
+            }
+
+            .feature-card {
+                background: var(--bg-card);
+                padding: 35px;
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                color: var(--text-main);
+            }
+
+            .feature-card p {
+                color: var(--text-muted);
+                font-size: 1rem;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                background: var(--gradient);
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .cta-section {
+                padding: 80px 0;
+                background: var(--bg-secondary);
+                text-align: center;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+                color: var(--text-main);
+            }
+
+            .cta-section p {
+                color: var(--text-muted);
+                max-width: 600px;
+                margin: 0 auto 30px;
+                font-size: 1.1rem;
+            }
+
+            .printers-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+                margin: 40px 0;
+            }
+
+            .printer-tag {
+                background: var(--bg-card);
+                padding: 10px 20px;
+                border-radius: 50px;
+                border: 1px solid var(--border-color);
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+            }
+
+            footer {
+                padding: 40px 0;
+                border-top: 1px solid var(--border-color);
+                background: var(--bg-primary);
+                text-align: center;
+            }
+
+            footer p { color: var(--text-muted); font-size: 0.9rem; }
+
+            @media (max-width: 768px) {
+                .hero h1 { font-size: 2rem; }
+                .content h2 { font-size: 1.5rem; }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="/" class="logo">
+                        <div class="logo-icon"><i class="fas fa-cube"></i></div>
+                        3DControl
+                    </a>
+                    <a href="/promo" class="btn btn-primary" style="padding: 10px 24px">
+                        Testar Grátis
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <h1>Calculadora de <span>Custo de Impressão 3D</span></h1>
+                <p>
+                    Descubra o custo real de cada peça impressa. Nossa calculadora considera filamento,
+                    energia elétrica, desgaste da máquina e tempo de operação para você precificar com precisão.
+                </p>
+                <a href="/promo" class="btn btn-primary">
+                    <i class="fas fa-calculator"></i>
+                    Acessar Calculadora
+                </a>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <h2>Por que calcular o <span>custo real</span>?</h2>
+                <p>
+                    A maioria dos makers e hubs de impressão 3D não sabe quanto realmente gasta em cada peça.
+                    Eles calculam apenas o filamento e esquecem dos outros custos que corroem o lucro silenciosamente.
+                </p>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Custo do filamento:</strong> Calculado por grama utilizada, incluindo suporte e desperdício</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Energia elétrica:</strong> Consumo real da impressora durante toda a impressão</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Desgaste da máquina:</strong> Depreciação, manutenção e troca de peças (nozzle, correias, etc.)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Tempo de operação:</strong> Seu tempo preparando, monitorando e finalizando a peça</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Falhas de impressão:</strong> Taxa de falha média para cobrir reprints</span>
+                    </li>
+                </ul>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-cog"></i></div>
+                        <h3>Múltiplas Impressoras</h3>
+                        <p>Configure diferentes impressoras com custos específicos de energia e manutenção para cada uma.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Diversos Filamentos</h3>
+                        <p>Cadastre PLA, PETG, ABS, TPU, ASA e outros materiais com preços diferentes por fornecedor.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Margem de Lucro</h3>
+                        <p>Defina sua margem desejada e veja o preço de venda sugerido automaticamente.</p>
+                    </div>
+                </div>
+
+                <h2>Compatível com <span>sua impressora</span></h2>
+                <p>
+                    O 3DControl funciona com qualquer impressora 3D FDM ou resina. Seja você um maker iniciante
+                    com uma Ender 3 ou um hub profissional com Bambu Lab X1 Carbon, nossa calculadora se adapta.
+                </p>
+
+                <div class="printers-list">
+                    <span class="printer-tag">Bambu Lab A1</span>
+                    <span class="printer-tag">Bambu Lab P1S</span>
+                    <span class="printer-tag">Bambu Lab X1 Carbon</span>
+                    <span class="printer-tag">Creality Ender 3</span>
+                    <span class="printer-tag">Creality K1</span>
+                    <span class="printer-tag">Prusa MK4</span>
+                    <span class="printer-tag">Voron</span>
+                    <span class="printer-tag">Elegoo</span>
+                    <span class="printer-tag">Anycubic</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Comece a calcular seus custos agora</h2>
+                <p>
+                    Teste o 3DControl gratuitamente por 14 dias. Sem cartão de crédito, sem compromisso.
+                </p>
+                <a href="/promo" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Testar Grátis por 14 Dias
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 3DControl. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </body>
+</html>
