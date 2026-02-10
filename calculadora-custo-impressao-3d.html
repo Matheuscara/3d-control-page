@@ -3,13 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-site-verification" content="S3fjV3ZNcfsUWSfkCYRItH95sEz8vCgYw6oR8Ux4Yig" />
-        <title>Calculadora de Custo de Impressão 3D | 3DControl</title>
+        <meta
+            name="google-site-verification"
+            content="S3fjV3ZNcfsUWSfkCYRItH95sEz8vCgYw6oR8Ux4Yig"
+        />
+        <title>Calculadora de Custo de Impressão 3D Grátis | 3DControl</title>
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
         <!-- SEO Meta Tags -->
-        <meta name="description" content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina e tempo. Funciona com Bambu Lab, Creality, Ender e outras." />
-        <meta name="keywords" content="calculadora impressão 3D, custo impressão 3D, preço peça 3D, calcular filamento, custo Bambu Lab, custo Ender 3, precificação impressão 3D" />
+        <meta
+            name="description"
+            content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina, mão de obra e margem de lucro. Funciona com Bambu Lab, Creality, Ender e outras."
+        />
+        <meta
+            name="keywords"
+            content="calculadora impressão 3D, custo impressão 3D, preço peça 3D, calcular filamento, custo Bambu Lab, custo Ender 3, precificação impressão 3D"
+        />
         <meta name="author" content="3DControl" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://3dcontrol.com.br/calculadora-custo-impressao-3d" />
@@ -17,8 +26,14 @@
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://3dcontrol.com.br/calculadora-custo-impressao-3d" />
-        <meta property="og:title" content="Calculadora de Custo de Impressão 3D | 3DControl" />
-        <meta property="og:description" content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina e tempo." />
+        <meta
+            property="og:title"
+            content="Calculadora de Custo de Impressão 3D Grátis | 3DControl"
+        />
+        <meta
+            property="og:description"
+            content="Calcule o custo real de cada impressão 3D. Inclui filamento, energia, desgaste da máquina e tempo."
+        />
         <meta property="og:image" content="https://3dcontrol.com.br/og-image.jpg" />
         <meta property="og:locale" content="pt_BR" />
 
@@ -32,18 +47,25 @@
                 "operatingSystem": "Web",
                 "description": "Calculadora profissional de custos para impressão 3D. Calcule filamento, energia, desgaste e tempo de máquina.",
                 "url": "https://3dcontrol.com.br/calculadora-custo-impressao-3d",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
                 "featureList": [
                     "Cálculo de custo de filamento por grama",
                     "Cálculo de consumo de energia",
-                    "Desgaste de peças e manutenção",
-                    "Tempo de máquina e operador",
-                    "Suporte a múltiplas impressoras"
+                    "Depreciação da impressora",
+                    "Mão de obra e preparação",
+                    "Margem de lucro e taxa de plataforma"
                 ]
             }
         </script>
 
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
 
         <style>
             :root {
@@ -52,6 +74,7 @@
                 --primary-light: rgba(255, 107, 53, 0.1);
                 --secondary: #1e293b;
                 --accent: #10b981;
+                --accent-hover: #059669;
                 --gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
             }
 
@@ -66,6 +89,7 @@
                 --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
                 --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
                 --header-bg: rgba(255, 255, 255, 0.9);
+                --input-bg: #f8fafc;
             }
 
             [data-theme="dark"] {
@@ -79,12 +103,27 @@
                 --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
                 --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
                 --header-bg: rgba(15, 23, 42, 0.9);
+                --input-bg: #0f172a;
             }
 
-            * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Inter", sans-serif; }
-            body { background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
-            .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Inter", sans-serif;
+            }
+            body {
+                background-color: var(--bg-primary);
+                color: var(--text-main);
+                line-height: 1.6;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
 
+            /* Header */
             header {
                 padding: 16px 0;
                 position: fixed;
@@ -95,9 +134,11 @@
                 backdrop-filter: blur(20px);
                 border-bottom: 1px solid var(--border-color);
             }
-
-            nav { display: flex; justify-content: space-between; align-items: center; }
-
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
             .logo {
                 font-size: 1.4rem;
                 font-weight: 700;
@@ -107,7 +148,6 @@
                 gap: 12px;
                 text-decoration: none;
             }
-
             .logo-icon {
                 width: 42px;
                 height: 42px;
@@ -117,9 +157,12 @@
                 align-items: center;
                 justify-content: center;
             }
+            .logo-icon i {
+                color: white;
+                font-size: 1.2rem;
+            }
 
-            .logo-icon i { color: white; font-size: 1.2rem; }
-
+            /* Buttons */
             .btn {
                 display: inline-flex;
                 align-items: center;
@@ -133,170 +176,432 @@
                 border: none;
                 font-size: 1rem;
             }
-
             .btn-primary {
                 background: var(--gradient);
                 color: white;
                 box-shadow: 0 4px 20px rgba(255, 107, 53, 0.35);
             }
-
             .btn-primary:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
             }
+            .btn-accent {
+                background: var(--accent);
+                color: white;
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+            }
+            .btn-accent:hover {
+                background: var(--accent-hover);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+            }
 
+            /* Hero */
             .hero {
-                padding: 140px 0 80px;
+                padding: 120px 0 50px;
                 background: var(--bg-secondary);
+                text-align: center;
             }
-
             .hero h1 {
-                font-size: 3rem;
-                margin-bottom: 20px;
+                font-size: 2.6rem;
+                margin-bottom: 16px;
                 font-weight: 800;
-                color: var(--text-main);
             }
-
             .hero h1 span {
                 background: var(--gradient);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
-
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
                 color: var(--text-muted);
-                max-width: 700px;
-                margin-bottom: 30px;
+                max-width: 650px;
+                margin: 0 auto;
             }
 
-            .content { padding: 80px 0; }
+            /* Calculator Layout */
+            .calc-wrapper {
+                max-width: 1100px;
+                margin: -30px auto 0;
+                padding: 0 24px;
+                position: relative;
+                z-index: 1;
+            }
+            .calc-grid {
+                display: grid;
+                grid-template-columns: 1fr 380px;
+                gap: 30px;
+                align-items: start;
+            }
 
-            .content h2 {
-                font-size: 2rem;
-                margin-bottom: 20px;
+            /* Form Sections */
+            .calc-form {
+                background: var(--bg-card);
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+                padding: 32px;
+            }
+            .form-section {
+                margin-bottom: 28px;
+            }
+            .form-section:last-child {
+                margin-bottom: 0;
+            }
+            .section-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--primary);
+                margin-bottom: 16px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid var(--primary-light);
+            }
+            .section-title i {
+                font-size: 1.1rem;
+            }
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+                margin-bottom: 14px;
+            }
+            .form-row:last-child {
+                margin-bottom: 0;
+            }
+            .form-row.cols-3 {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .form-group label {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            .form-group label .unit {
+                font-weight: 400;
+                color: var(--text-muted);
+                font-size: 0.75rem;
+            }
+            .form-group input,
+            .form-group select {
+                padding: 10px 14px;
+                border-radius: 10px;
+                border: 1px solid var(--border-color);
+                background: var(--input-bg);
+                color: var(--text-main);
+                font-size: 0.95rem;
+                font-family: "Inter", sans-serif;
+                transition:
+                    border-color 0.2s,
+                    box-shadow 0.2s;
+                width: 100%;
+            }
+            .form-group input:focus,
+            .form-group select:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px var(--primary-light);
+            }
+            .form-group input::placeholder {
+                color: var(--text-muted);
+                font-size: 0.85rem;
+            }
+
+            /* Results Panel */
+            .results-panel {
+                position: sticky;
+                top: 100px;
+            }
+            .results-card {
+                background: var(--bg-card);
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+                overflow: hidden;
+            }
+            .results-header {
+                background: var(--gradient);
+                padding: 20px 24px;
+                color: white;
+                text-align: center;
+            }
+            .results-header h3 {
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+            .results-header p {
+                font-size: 0.85rem;
+                opacity: 0.85;
+                margin-top: 2px;
+            }
+            .results-body {
+                padding: 24px;
+            }
+
+            .result-line {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                font-size: 0.9rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .result-line:last-child {
+                border-bottom: none;
+            }
+            .result-line .label {
+                color: var(--text-secondary);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .result-line .label i {
+                font-size: 0.75rem;
+                color: var(--primary);
+            }
+            .result-line .value {
+                font-weight: 600;
+                font-family: "Inter", monospace;
                 color: var(--text-main);
             }
 
-            .content h2 span {
+            .result-divider {
+                height: 2px;
+                background: var(--border-color);
+                margin: 12px 0;
+            }
+
+            .result-total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                border-radius: 12px;
+                margin: 8px 0;
+                font-weight: 700;
+            }
+            .result-total.cost {
+                background: #fef2f2;
+                color: #991b1b;
+            }
+            [data-theme="dark"] .result-total.cost {
+                background: rgba(239, 68, 68, 0.15);
+                color: #fca5a5;
+            }
+            .result-total.price {
+                background: var(--primary-light);
+                color: var(--primary);
+                font-size: 1.15rem;
+            }
+            .result-total.profit {
+                background: #f0fdf4;
+                color: #166534;
+            }
+            [data-theme="dark"] .result-total.profit {
+                background: rgba(16, 185, 129, 0.15);
+                color: #6ee7b7;
+            }
+
+            .result-total .value {
+                font-family: "Inter", monospace;
+            }
+
+            .qty-section {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 2px dashed var(--border-color);
+            }
+            .qty-line {
+                display: flex;
+                justify-content: space-between;
+                padding: 4px 0;
+                font-size: 0.85rem;
+                color: var(--text-muted);
+            }
+            .qty-line .value {
+                font-weight: 600;
+                color: var(--text-main);
+            }
+
+            /* Blur overlay for gating */
+            .results-gated {
+                position: relative;
+            }
+            .results-gated .results-blur {
+                filter: blur(6px);
+                pointer-events: none;
+                user-select: none;
+            }
+            .gate-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 30px;
+                text-align: center;
+                z-index: 10;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 0 0 20px 20px;
+            }
+            [data-theme="dark"] .gate-overlay {
+                background: rgba(15, 23, 42, 0.7);
+            }
+            .gate-overlay i {
+                font-size: 2.5rem;
+                color: var(--primary);
+                margin-bottom: 12px;
+            }
+            .gate-overlay h4 {
+                font-size: 1.15rem;
+                color: var(--text-main);
+                margin-bottom: 6px;
+            }
+            .gate-overlay p {
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                margin-bottom: 16px;
+                max-width: 280px;
+            }
+            .gate-form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                max-width: 300px;
+            }
+            .gate-form input {
+                padding: 12px 16px;
+                border-radius: 10px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-card);
+                color: var(--text-main);
+                font-size: 0.95rem;
+                font-family: "Inter", sans-serif;
+                text-align: center;
+            }
+            .gate-form input:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px var(--primary-light);
+            }
+            .gate-form .btn {
+                justify-content: center;
+                padding: 12px 24px;
+            }
+            .gate-error {
+                color: #dc2626;
+                font-size: 0.8rem;
+                display: none;
+            }
+
+            /* CTA Section */
+            .cta-section {
+                padding: 60px 0 80px;
+                text-align: center;
+            }
+            .cta-card {
+                background: var(--bg-card);
+                border-radius: 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+                padding: 40px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .cta-card h2 {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            .cta-card h2 span {
                 background: var(--gradient);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
-
-            .content p, .content li {
-                font-size: 1.1rem;
-                color: var(--text-secondary);
-                margin-bottom: 15px;
-                line-height: 1.8;
-            }
-
-            .content ul {
-                list-style: none;
-                margin: 30px 0;
-            }
-
-            .content ul li {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                margin-bottom: 15px;
-            }
-
-            .content ul li i {
-                color: var(--accent);
-                margin-top: 5px;
-            }
-
-            .features-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
-                margin: 50px 0;
-            }
-
-            .feature-card {
-                background: var(--bg-card);
-                padding: 35px;
-                border-radius: 20px;
-                border: 1px solid var(--border-color);
-                box-shadow: var(--shadow-sm);
-            }
-
-            .feature-card h3 {
-                font-size: 1.3rem;
-                margin-bottom: 15px;
-                color: var(--text-main);
-            }
-
-            .feature-card p {
+            .cta-card p {
                 color: var(--text-muted);
+                margin-bottom: 24px;
                 font-size: 1rem;
             }
-
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-                background: var(--gradient);
-                border-radius: 16px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-            }
-
-            .cta-section {
-                padding: 80px 0;
-                background: var(--bg-secondary);
-                text-align: center;
-            }
-
-            .cta-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
-                color: var(--text-main);
-            }
-
-            .cta-section p {
-                color: var(--text-muted);
-                max-width: 600px;
-                margin: 0 auto 30px;
-                font-size: 1.1rem;
-            }
-
-            .printers-list {
+            .cta-features {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 15px;
+                gap: 12px;
                 justify-content: center;
-                margin: 40px 0;
+                margin-bottom: 24px;
             }
-
-            .printer-tag {
-                background: var(--bg-card);
-                padding: 10px 20px;
+            .cta-feature {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                background: var(--bg-secondary);
+                padding: 6px 14px;
                 border-radius: 50px;
                 border: 1px solid var(--border-color);
-                font-size: 0.95rem;
-                color: var(--text-secondary);
+            }
+            .cta-feature i {
+                color: var(--accent);
+                font-size: 0.8rem;
             }
 
+            /* Footer */
             footer {
                 padding: 40px 0;
                 border-top: 1px solid var(--border-color);
                 background: var(--bg-primary);
                 text-align: center;
             }
+            footer p {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+            }
 
-            footer p { color: var(--text-muted); font-size: 0.9rem; }
-
-            @media (max-width: 768px) {
-                .hero h1 { font-size: 2rem; }
-                .content h2 { font-size: 1.5rem; }
+            /* Responsive */
+            @media (max-width: 900px) {
+                .calc-grid {
+                    grid-template-columns: 1fr;
+                }
+                .results-panel {
+                    position: static;
+                }
+                .hero h1 {
+                    font-size: 1.8rem;
+                }
+            }
+            @media (max-width: 600px) {
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+                .form-row.cols-3 {
+                    grid-template-columns: 1fr;
+                }
+                .hero {
+                    padding: 110px 0 40px;
+                }
+                .calc-form {
+                    padding: 20px;
+                }
+                .hero h1 {
+                    font-size: 1.5rem;
+                }
             }
         </style>
     </head>
@@ -309,8 +614,12 @@
                         <div class="logo-icon"><i class="fas fa-cube"></i></div>
                         3DControl
                     </a>
-                    <a href="/promo" class="btn btn-primary" style="padding: 10px 24px">
-                        Testar Grátis
+                    <a
+                        href="/promo"
+                        class="btn btn-primary"
+                        style="padding: 10px 24px; font-size: 0.9rem"
+                    >
+                        Testar Gratis
                     </a>
                 </nav>
             </div>
@@ -318,104 +627,586 @@
 
         <section class="hero">
             <div class="container">
-                <h1>Calculadora de <span>Custo de Impressão 3D</span></h1>
+                <h1>Calculadora de <span>Custo 3D</span></h1>
                 <p>
-                    Descubra o custo real de cada peça impressa. Nossa calculadora considera filamento,
-                    energia elétrica, desgaste da máquina e tempo de operação para você precificar com precisão.
+                    Descubra o custo real, o preco de venda ideal e o lucro de cada peca impressa em
+                    3D.
                 </p>
-                <a href="/promo" class="btn btn-primary">
-                    <i class="fas fa-calculator"></i>
-                    Acessar Calculadora
-                </a>
             </div>
         </section>
 
-        <section class="content">
-            <div class="container">
-                <h2>Por que calcular o <span>custo real</span>?</h2>
-                <p>
-                    A maioria dos makers e hubs de impressão 3D não sabe quanto realmente gasta em cada peça.
-                    Eles calculam apenas o filamento e esquecem dos outros custos que corroem o lucro silenciosamente.
-                </p>
-
-                <ul>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Custo do filamento:</strong> Calculado por grama utilizada, incluindo suporte e desperdício</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Energia elétrica:</strong> Consumo real da impressora durante toda a impressão</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Desgaste da máquina:</strong> Depreciação, manutenção e troca de peças (nozzle, correias, etc.)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Tempo de operação:</strong> Seu tempo preparando, monitorando e finalizando a peça</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Falhas de impressão:</strong> Taxa de falha média para cobrir reprints</span>
-                    </li>
-                </ul>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-cog"></i></div>
-                        <h3>Múltiplas Impressoras</h3>
-                        <p>Configure diferentes impressoras com custos específicos de energia e manutenção para cada uma.</p>
+        <div class="calc-wrapper">
+            <div class="calc-grid">
+                <!-- LEFT: Form -->
+                <div class="calc-form">
+                    <!-- Section 1: Material -->
+                    <div class="form-section">
+                        <div class="section-title"><i class="fas fa-fill-drip"></i> Material</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Peso do filamento <span class="unit">(g)</span></label>
+                                <input
+                                    type="number"
+                                    id="peso_g"
+                                    placeholder="Ex: 50"
+                                    min="0"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Custo do filamento <span class="unit">(R$/kg)</span></label>
+                                <input
+                                    type="number"
+                                    id="custo_kg"
+                                    value="55"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Taxa de perda/refugo <span class="unit">(%)</span></label>
+                                <input
+                                    type="number"
+                                    id="taxa_perda"
+                                    value="5"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
-                        <h3>Diversos Filamentos</h3>
-                        <p>Cadastre PLA, PETG, ABS, TPU, ASA e outros materiais com preços diferentes por fornecedor.</p>
+
+                    <!-- Section 2: Impressora -->
+                    <div class="form-section">
+                        <div class="section-title"><i class="fas fa-print"></i> Impressora</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tempo de impressao <span class="unit">(min)</span></label>
+                                <input
+                                    type="number"
+                                    id="tempo_impressao"
+                                    placeholder="Ex: 120"
+                                    min="0"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Consumo <span class="unit">(Watts)</span></label>
+                                <input
+                                    type="number"
+                                    id="consumo_w"
+                                    value="170"
+                                    min="0"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Preco da impressora <span class="unit">(R$)</span></label>
+                                <input
+                                    type="number"
+                                    id="preco_impressora"
+                                    placeholder="Ex: 3298"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Vida util <span class="unit">(horas)</span></label>
+                                <input
+                                    type="number"
+                                    id="vida_util"
+                                    value="8000"
+                                    min="1"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h3>Margem de Lucro</h3>
-                        <p>Defina sua margem desejada e veja o preço de venda sugerido automaticamente.</p>
+
+                    <!-- Section 3: Energia e Mao de Obra -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-bolt"></i> Energia e Mao de Obra
+                        </div>
+                        <div class="form-row cols-3">
+                            <div class="form-group">
+                                <label>Energia <span class="unit">(R$/kWh)</span></label>
+                                <input
+                                    type="number"
+                                    id="custo_kwh"
+                                    value="0.85"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Preparacao <span class="unit">(min)</span></label>
+                                <input
+                                    type="number"
+                                    id="tempo_prep"
+                                    value="15"
+                                    min="0"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Valor/hora <span class="unit">(R$/h)</span></label>
+                                <input
+                                    type="number"
+                                    id="valor_hora"
+                                    value="20"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Custos Adicionais -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-box-open"></i> Custos Adicionais
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Embalagem <span class="unit">(R$)</span></label>
+                                <input
+                                    type="number"
+                                    id="custo_embalagem"
+                                    value="1.50"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Extras / Componentes <span class="unit">(R$)</span></label>
+                                <input
+                                    type="number"
+                                    id="custo_extras"
+                                    value="0"
+                                    min="0"
+                                    step="0.01"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Precificacao -->
+                    <div class="form-section">
+                        <div class="section-title"><i class="fas fa-tags"></i> Precificacao</div>
+                        <div class="form-row cols-3">
+                            <div class="form-group">
+                                <label>Margem de lucro <span class="unit">(%)</span></label>
+                                <input
+                                    type="number"
+                                    id="margem"
+                                    value="50"
+                                    min="0"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Taxa plataforma <span class="unit">(%)</span></label>
+                                <input
+                                    type="number"
+                                    id="taxa_plataforma"
+                                    value="0"
+                                    min="0"
+                                    max="100"
+                                    step="0.1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Quantidade</label>
+                                <input
+                                    type="number"
+                                    id="quantidade"
+                                    value="1"
+                                    min="1"
+                                    step="1"
+                                    oninput="calcular()"
+                                />
+                            </div>
+                        </div>
+                        <!-- Platform quick select -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px">
+                            <button type="button" class="plat-btn" onclick="setPlataforma(0)">
+                                Venda Direta
+                            </button>
+                            <button type="button" class="plat-btn" onclick="setPlataforma(3)">
+                                Site Proprio
+                            </button>
+                            <button type="button" class="plat-btn" onclick="setPlataforma(14)">
+                                Shopee
+                            </button>
+                            <button type="button" class="plat-btn" onclick="setPlataforma(15)">
+                                Amazon
+                            </button>
+                            <button type="button" class="plat-btn" onclick="setPlataforma(16)">
+                                Mercado Livre
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <h2>Compatível com <span>sua impressora</span></h2>
-                <p>
-                    O 3DControl funciona com qualquer impressora 3D FDM ou resina. Seja você um maker iniciante
-                    com uma Ender 3 ou um hub profissional com Bambu Lab X1 Carbon, nossa calculadora se adapta.
-                </p>
+                <!-- RIGHT: Results -->
+                <div class="results-panel">
+                    <div class="results-card">
+                        <div class="results-header">
+                            <h3><i class="fas fa-receipt"></i> Resultado</h3>
+                            <p>Detalhamento de custos por unidade</p>
+                        </div>
 
-                <div class="printers-list">
-                    <span class="printer-tag">Bambu Lab A1</span>
-                    <span class="printer-tag">Bambu Lab P1S</span>
-                    <span class="printer-tag">Bambu Lab X1 Carbon</span>
-                    <span class="printer-tag">Creality Ender 3</span>
-                    <span class="printer-tag">Creality K1</span>
-                    <span class="printer-tag">Prusa MK4</span>
-                    <span class="printer-tag">Voron</span>
-                    <span class="printer-tag">Elegoo</span>
-                    <span class="printer-tag">Anycubic</span>
+                        <div id="results-container" class="results-gated">
+                            <!-- Blurred results -->
+                            <div id="results-content" class="results-body results-blur">
+                                <div class="result-line">
+                                    <span class="label"
+                                        ><i class="fas fa-circle"></i> Material</span
+                                    >
+                                    <span class="value" id="r_material">R$ 0,00</span>
+                                </div>
+                                <div class="result-line">
+                                    <span class="label"><i class="fas fa-circle"></i> Energia</span>
+                                    <span class="value" id="r_energia">R$ 0,00</span>
+                                </div>
+                                <div class="result-line">
+                                    <span class="label"
+                                        ><i class="fas fa-circle"></i> Depreciacao</span
+                                    >
+                                    <span class="value" id="r_depreciacao">R$ 0,00</span>
+                                </div>
+                                <div class="result-line">
+                                    <span class="label"
+                                        ><i class="fas fa-circle"></i> Mao de Obra</span
+                                    >
+                                    <span class="value" id="r_mao_obra">R$ 0,00</span>
+                                </div>
+                                <div class="result-line">
+                                    <span class="label"><i class="fas fa-circle"></i> Extras</span>
+                                    <span class="value" id="r_extras">R$ 0,00</span>
+                                </div>
+                                <div class="result-line">
+                                    <span class="label"
+                                        ><i class="fas fa-circle"></i> Embalagem</span
+                                    >
+                                    <span class="value" id="r_embalagem">R$ 0,00</span>
+                                </div>
+
+                                <div class="result-divider"></div>
+
+                                <div class="result-total cost">
+                                    <span>Custo Total</span>
+                                    <span class="value" id="r_custo_total">R$ 0,00</span>
+                                </div>
+
+                                <div class="result-line">
+                                    <span class="label"
+                                        ><i class="fas fa-circle"></i> Taxa plataforma</span
+                                    >
+                                    <span class="value" id="r_taxa" style="color: #dc2626"
+                                        >- R$ 0,00</span
+                                    >
+                                </div>
+
+                                <div class="result-total price">
+                                    <span>Preco de Venda</span>
+                                    <span class="value" id="r_preco_venda">R$ 0,00</span>
+                                </div>
+
+                                <div class="result-total profit">
+                                    <span>Lucro Liquido</span>
+                                    <span class="value" id="r_lucro">R$ 0,00</span>
+                                </div>
+                                <div class="result-line" style="border: none">
+                                    <span class="label">Margem real sobre venda</span>
+                                    <span
+                                        class="value"
+                                        id="r_percentual"
+                                        style="color: var(--accent)"
+                                        >0%</span
+                                    >
+                                </div>
+
+                                <!-- Quantity totals -->
+                                <div class="qty-section" id="qty-section" style="display: none">
+                                    <div class="qty-line">
+                                        <span>Total venda (<span id="qty-label">1</span> un.)</span>
+                                        <span class="value" id="r_total_venda">R$ 0,00</span>
+                                    </div>
+                                    <div class="qty-line">
+                                        <span>Total lucro</span>
+                                        <span
+                                            class="value"
+                                            id="r_total_lucro"
+                                            style="color: var(--accent)"
+                                            >R$ 0,00</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Gate overlay -->
+                            <div class="gate-overlay" id="gate-overlay">
+                                <i class="fas fa-lock"></i>
+                                <h4>Veja seu resultado</h4>
+                                <p>
+                                    Informe seu e-mail para desbloquear o calculo completo
+                                    gratuitamente.
+                                </p>
+                                <div class="gate-form">
+                                    <input type="text" id="gate-name" placeholder="Seu nome" />
+                                    <input
+                                        type="email"
+                                        id="gate-email"
+                                        placeholder="Seu melhor e-mail"
+                                    />
+                                    <span class="gate-error" id="gate-error"
+                                        >Informe um e-mail valido.</span
+                                    >
+                                    <button class="btn btn-primary" onclick="desbloquear()">
+                                        <i class="fas fa-unlock"></i> Ver Resultado
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
+        <!-- CTA -->
         <section class="cta-section">
             <div class="container">
-                <h2>Comece a calcular seus custos agora</h2>
-                <p>
-                    Teste o 3DControl gratuitamente por 14 dias. Sem cartão de crédito, sem compromisso.
-                </p>
-                <a href="/promo" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    Testar Grátis por 14 Dias
-                </a>
+                <div class="cta-card">
+                    <h2>Gostou da calculadora? Conheca o <span>3DControl</span></h2>
+                    <p>
+                        Gerencie tudo automaticamente: produtos, estoque de filamentos, impressoras,
+                        clientes e pedidos com calculo de lucro em tempo real.
+                    </p>
+                    <div class="cta-features">
+                        <span class="cta-feature"
+                            ><i class="fas fa-check"></i> Dashboard financeiro</span
+                        >
+                        <span class="cta-feature"
+                            ><i class="fas fa-check"></i> Gestao de pedidos</span
+                        >
+                        <span class="cta-feature"
+                            ><i class="fas fa-check"></i> Controle de estoque</span
+                        >
+                        <span class="cta-feature"
+                            ><i class="fas fa-check"></i> Catalogo de produtos</span
+                        >
+                        <span class="cta-feature"
+                            ><i class="fas fa-check"></i> CRM de clientes</span
+                        >
+                    </div>
+                    <a href="/promo" class="btn btn-accent">
+                        <i class="fas fa-rocket"></i> Testar Gratis por 14 Dias
+                    </a>
+                </div>
             </div>
         </section>
 
         <footer>
             <div class="container">
-                <p>&copy; 2024 3DControl. Todos os direitos reservados.</p>
+                <p>&copy; 2025 3DControl. Todos os direitos reservados.</p>
             </div>
         </footer>
+
+        <style>
+            .plat-btn {
+                padding: 5px 12px;
+                border-radius: 50px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-secondary);
+                color: var(--text-secondary);
+                font-size: 0.78rem;
+                cursor: pointer;
+                font-family: "Inter", sans-serif;
+                transition: all 0.2s;
+            }
+            .plat-btn:hover,
+            .plat-btn.active {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+        </style>
+
+        <script>
+            // State
+            let desbloqueado = false;
+
+            function getVal(id) {
+                const v = parseFloat(document.getElementById(id).value);
+                return isNaN(v) ? 0 : v;
+            }
+
+            function fmt(valor) {
+                return "R$ " + valor.toFixed(2).replace(".", ",");
+            }
+
+            function calcular() {
+                // Inputs
+                const peso_g = getVal("peso_g");
+                const custo_kg = getVal("custo_kg");
+                const taxa_perda = getVal("taxa_perda");
+                const tempo_impressao = getVal("tempo_impressao");
+                const consumo_w = getVal("consumo_w");
+                const custo_kwh = getVal("custo_kwh");
+                const preco_impressora = getVal("preco_impressora");
+                const vida_util = getVal("vida_util") || 1;
+                const tempo_prep = getVal("tempo_prep");
+                const valor_hora = getVal("valor_hora");
+                const custo_embalagem = getVal("custo_embalagem");
+                const custo_extras = getVal("custo_extras");
+                const margem = getVal("margem");
+                const taxa_plataforma = getVal("taxa_plataforma");
+                const quantidade = Math.max(1, getVal("quantidade"));
+
+                const tempo_horas = tempo_impressao / 60;
+
+                // 1. Material
+                const custo_material = peso_g * (custo_kg / 1000) * (1 + taxa_perda / 100);
+
+                // 2. Energia
+                const custo_energia = (consumo_w / 1000) * custo_kwh * tempo_horas;
+
+                // 3. Depreciacao
+                const custo_depreciacao = (preco_impressora / vida_util) * tempo_horas;
+
+                // 4. Mao de obra
+                const custo_mao_obra = (tempo_prep / 60) * valor_hora;
+
+                // 6. Custo Total
+                const custo_total =
+                    custo_material +
+                    custo_energia +
+                    custo_depreciacao +
+                    custo_mao_obra +
+                    custo_extras +
+                    custo_embalagem;
+
+                // 7. Preco de Venda
+                const preco_venda = custo_total * (1 + margem / 100);
+
+                // 8. Taxa
+                const taxa_valor = preco_venda * (taxa_plataforma / 100);
+
+                // 9. Lucros
+                const lucro_bruto = preco_venda - custo_total;
+                const lucro_liquido = lucro_bruto - taxa_valor;
+                const percentual_lucro = preco_venda > 0 ? (lucro_liquido / preco_venda) * 100 : 0;
+
+                // 10. Totais
+                const total_venda = preco_venda * quantidade;
+                const total_lucro = lucro_liquido * quantidade;
+
+                // Update DOM
+                document.getElementById("r_material").textContent = fmt(custo_material);
+                document.getElementById("r_energia").textContent = fmt(custo_energia);
+                document.getElementById("r_depreciacao").textContent = fmt(custo_depreciacao);
+                document.getElementById("r_mao_obra").textContent = fmt(custo_mao_obra);
+                document.getElementById("r_extras").textContent = fmt(custo_extras);
+                document.getElementById("r_embalagem").textContent = fmt(custo_embalagem);
+                document.getElementById("r_custo_total").textContent = fmt(custo_total);
+                document.getElementById("r_taxa").textContent = "- " + fmt(taxa_valor);
+                document.getElementById("r_preco_venda").textContent = fmt(preco_venda);
+                document.getElementById("r_lucro").textContent =
+                    fmt(lucro_liquido) +
+                    " (" +
+                    percentual_lucro.toFixed(1).replace(".", ",") +
+                    "%)";
+                document.getElementById("r_percentual").textContent =
+                    percentual_lucro.toFixed(1).replace(".", ",") + "%";
+
+                // Quantity section
+                const qtySection = document.getElementById("qty-section");
+                if (quantidade > 1) {
+                    qtySection.style.display = "block";
+                    document.getElementById("qty-label").textContent = quantidade;
+                    document.getElementById("r_total_venda").textContent = fmt(total_venda);
+                    document.getElementById("r_total_lucro").textContent = fmt(total_lucro);
+                } else {
+                    qtySection.style.display = "none";
+                }
+            }
+
+            function setPlataforma(taxa) {
+                document.getElementById("taxa_plataforma").value = taxa;
+                // Highlight active button
+                document.querySelectorAll(".plat-btn").forEach(function (btn) {
+                    btn.classList.remove("active");
+                });
+                event.target.classList.add("active");
+                calcular();
+            }
+
+            function desbloquear() {
+                const email = document.getElementById("gate-email").value.trim();
+                const name = document.getElementById("gate-name").value.trim();
+                const errorEl = document.getElementById("gate-error");
+
+                // Basic email validation
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    errorEl.style.display = "block";
+                    return;
+                }
+                errorEl.style.display = "none";
+
+                // Store lead (you can integrate with your backend/API later)
+                try {
+                    const leads = JSON.parse(localStorage.getItem("calc_leads") || "[]");
+                    leads.push({ name: name, email: email, date: new Date().toISOString() });
+                    localStorage.setItem("calc_leads", JSON.stringify(leads));
+                } catch (e) {}
+
+                // Unlock
+                desbloqueado = true;
+                document.getElementById("gate-overlay").style.display = "none";
+                document.getElementById("results-content").classList.remove("results-blur");
+                document.getElementById("results-container").classList.remove("results-gated");
+
+                // Save unlocked state
+                try {
+                    localStorage.setItem("calc_unlocked", "1");
+                } catch (e) {}
+            }
+
+            // On load: check if already unlocked & run initial calc
+            (function () {
+                try {
+                    if (localStorage.getItem("calc_unlocked") === "1") {
+                        desbloqueado = true;
+                        document.getElementById("gate-overlay").style.display = "none";
+                        document.getElementById("results-content").classList.remove("results-blur");
+                        document
+                            .getElementById("results-container")
+                            .classList.remove("results-gated");
+                    }
+                } catch (e) {}
+                calcular();
+            })();
+        </script>
     </body>
 </html>
